@@ -1,0 +1,4 @@
+<Configure class="org.eclipse.jetty.server.handler.ContextHandler">
+  <Set name="contextPath">/</Set>
+  <Set name="resourceBase"><SystemProperty name="jetty.home" default="."/>/</Set>
+</Configure>

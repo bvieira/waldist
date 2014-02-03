@@ -1,0 +1,32 @@
+<configuration scan="true">
+
+	<property name="LOGS_PATH" value="/tmp/waldist/logs/" />
+
+	<appender name="SERVER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<file>${LOGS_PATH}/waldist.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGS_PATH}/manchester-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder><pattern>%d [%level] [%thread] [%logger{0}] %msg%n</pattern></encoder>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder><pattern>%d [%level] [%thread] [%logger{0}] %msg%n</pattern></encoder>
+	</appender>
+
+	<appender name="ASYNC-SERVER" class="ch.qos.logback.classic.AsyncAppender" queueSize="10000" discardingThreshold="10">
+		<appender-ref ref="SERVER" />
+	</appender>
+
+	<logger name="br.com.waldist" level="DEBUG" />
+
+	<root level="INFO">
+		<appender-ref ref="ASYNC-SERVER" />
+<!-- 		<appender-ref ref="STDOUT" /> -->
+	</root>
+
+</configuration>

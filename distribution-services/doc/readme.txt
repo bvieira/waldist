@@ -10,10 +10,12 @@ O algoritmo utilizado para calcular a menor rota entre os pontos foi o Dijkstra,
 	Gson: reponsável pela manipulação dos jsons, é uma biblioteca leve e fácil de usar
 	JUnit + Mockito: testes unitários, api fácil de usar
 	
-=> Melhorias
-Apesar de não ter implementado em um primeiro momento, existe uma melhorias que pode ser feita no sistema.
-- Implementar uma camada de cache simples para o retorno da busca de melhor rota
-	
+=> Logs
+/tmp/waldist/logs/waldist.log
+
+=> Database
+/tmp/waldist/database/	
+
 ================ Documentação ================
 Optei em fazer o javadoc apenas para alguns metodos, tentei fazer a implementação mais simples e fluida possível, para que o próprio codigo se auto-explique. 
 
